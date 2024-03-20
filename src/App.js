@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import'./index.css';
+import ResizableComponent from "./ResizableComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const screenWidth = window.innerWidth - 18;
+const boxWidth = screenWidth / 2;
+
+const App = () => (
+  <div className='App'>
+   <div className="top-window">
+   <ResizableComponent content="First Box" initialWidth={boxWidth} />
+   <ResizableComponent content="Second Box" initialWidth={boxWidth}/>
+   </div>
+   <ResizableComponent content="Third Box" initialWidth={screenWidth}/>
+  </div>
+);
 
 export default App;
